@@ -156,4 +156,43 @@ public class TemperatureSeriesAnalysisTest {
 
         assertEquals(expResult, actualResult, 0.00001);
     }
+
+    @Test
+    public void testFindTempClosestToZeroWithOneElementArray()
+            throws IllegalAccessException {
+        // setup input data and expected result
+        double[] temperatureSeries = {-1.0};
+        TemperatureSeriesAnalysis seriesAnalysis =
+                new TemperatureSeriesAnalysis(temperatureSeries);
+        double expResult = -1.0;
+
+        // call tested method
+        double actualResult = seriesAnalysis.findTempClosestToZero();
+
+        // compare expected result with actual result
+        assertEquals(expResult, actualResult, 0.00001);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testFindTempClosestToZeroWithEmptyArray()
+            throws IllegalAccessException {
+        double[] temperatureSeries = {};
+        TemperatureSeriesAnalysis seriesAnalysis =
+                new TemperatureSeriesAnalysis(temperatureSeries);
+
+        // expect exception here
+        seriesAnalysis.findTempClosestToZero();
+    }
+
+    @Test
+    public void testFindTempClosestToZero() throws IllegalAccessException {
+        double[] temperatureSeries = {3.0, -5.0, 1.0, 5.0};
+        TemperatureSeriesAnalysis seriesAnalysis =
+                new TemperatureSeriesAnalysis(temperatureSeries);
+        double expResult = 1.0;
+
+        double actualResult = seriesAnalysis.findTempClosestToZero();
+
+        assertEquals(expResult, actualResult, 0.00001);
+    }
 }
