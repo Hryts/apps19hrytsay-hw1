@@ -7,7 +7,7 @@ import org.junit.Ignore;
 public class TemperatureSeriesAnalysisTest {
 
     @Test
-    public void testAverageWithOneElementArray() {
+    public void testAverageWithOneElementArray() throws IllegalAccessException {
         // setup input data and expected result
         double[] temperatureSeries = {-1.0};
         TemperatureSeriesAnalysis seriesAnalysis = new TemperatureSeriesAnalysis(temperatureSeries);
@@ -22,7 +22,7 @@ public class TemperatureSeriesAnalysisTest {
 
     @Ignore
     @Test(expected = IllegalArgumentException.class)
-    public void testAverageWithEmptyArray() {
+    public void testAverageWithEmptyArray() throws IllegalAccessException {
         double[] temperatureSeries = {};
         TemperatureSeriesAnalysis seriesAnalysis = new TemperatureSeriesAnalysis(temperatureSeries);
 
@@ -32,7 +32,7 @@ public class TemperatureSeriesAnalysisTest {
 
     @Ignore
     @Test
-    public void testAverage() {
+    public void testAverage() throws IllegalAccessException {
         double[] temperatureSeries = {3.0, -5.0, 1.0, 5.0};
         TemperatureSeriesAnalysis seriesAnalysis = new TemperatureSeriesAnalysis(temperatureSeries);
         double expResult = 1.0;
