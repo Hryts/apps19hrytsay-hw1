@@ -138,15 +138,12 @@ public class TemperatureSeriesAnalysis {
 
     int addTemps(double... temps) {
         valid(temps);
-        if (capacity - len >= temps.length) {
-            System.arraycopy(temps, 0, temperatureSeries, len, len
-                    + temps.length - len);
-            return len + temps.length;
-        } else {
+        while (capacity - len < temps.length) {
             capacity *= 2;
             temperatureSeries = Arrays.copyOf(temperatureSeries, capacity);
-            addTemps(temps);
         }
-        return 0;
+        System.arraycopy(temps, 0, temperatureSeries, len, len
+                + temps.length - len);
+        return len + temps.length;
     }
 }
