@@ -22,15 +22,15 @@ public class TemperatureSeriesAnalysis {
     }
 
     private void valid(double... temps) throws InputMismatchException {
-        for (double temp: temps){
-            if (temp < MIN_TEMP){
+        for (double temp: temps) {
+            if (temp < MIN_TEMP) {
                 throw new InputMismatchException();
             }
         }
     }
 
     private void empty() throws IllegalAccessException {
-        if (len == 0){
+        if (len == 0) {
             throw new IllegalAccessException();
         }
     }
@@ -38,7 +38,7 @@ public class TemperatureSeriesAnalysis {
     public double average() throws IllegalAccessException {
         empty();
         double med = 0;
-        for (int i = 0; i < len; i++){
+        for (int i = 0; i < len; i++) {
             med += (float)temperatureSeries[i];
         }
         return med / len;
@@ -48,7 +48,7 @@ public class TemperatureSeriesAnalysis {
         empty();
         double mean = average();
         double dev = 0;
-        for (int i = 0; i < len; i++){
+        for (int i = 0; i < len; i++) {
             dev += Math.pow(temperatureSeries[i] - mean, 2);
         }
         dev /= len;
@@ -58,8 +58,8 @@ public class TemperatureSeriesAnalysis {
     public double min() throws IllegalAccessException {
         empty();
         double min = temperatureSeries[0];
-        for (int i = 1; i < len; i++){
-            if (temperatureSeries[i] < min){
+        for (int i = 1; i < len; i++) {
+            if (temperatureSeries[i] < min) {
                 min = temperatureSeries[i];
             }
         }
@@ -69,8 +69,8 @@ public class TemperatureSeriesAnalysis {
     public double max() throws IllegalAccessException {
         empty();
         double max = temperatureSeries[0];
-        for (int i = 1; i < len; i++){
-            if (temperatureSeries[i] > max){
+        for (int i = 1; i < len; i++) {
+            if (temperatureSeries[i] > max) {
                 max = temperatureSeries[i];
             }
         }
@@ -81,7 +81,7 @@ public class TemperatureSeriesAnalysis {
         empty();
         double minDif = Math.abs(temperatureSeries[0]);
         double res = temperatureSeries[0];
-        for (int i = 1; i < len; i++){
+        for (int i = 1; i < len; i++) {
             if (Math.abs(temperatureSeries[i]) < minDif) {
                 res = temperatureSeries[i];
             }
@@ -94,7 +94,7 @@ public class TemperatureSeriesAnalysis {
         empty();
         double minDif = Math.abs(temperatureSeries[0] - tempValue);
         double res = temperatureSeries[0];
-        for (int i = 1; i < len; i++){
+        for (int i = 1; i < len; i++) {
             if (Math.abs(temperatureSeries[i] - tempValue) < minDif) {
                 res = temperatureSeries[i];
             }
@@ -107,8 +107,8 @@ public class TemperatureSeriesAnalysis {
         empty();
         double[] res = new double[len];
         int temp = 0;
-        for (int i = 0; i < len; i++){
-            if (temperatureSeries[i] < tempValue){
+        for (int i = 0; i < len; i++) {
+            if (temperatureSeries[i] < tempValue) {
                 res[temp++] = temperatureSeries[i];
             }
         }
@@ -120,8 +120,8 @@ public class TemperatureSeriesAnalysis {
         empty();
         double[] res = new double[len];
         int temp = 0;
-        for (int i = 0; i < len; i++){
-            if (temperatureSeries[i] > tempValue){
+        for (int i = 0; i < len; i++) {
+            if (temperatureSeries[i] > tempValue) {
                 res[temp++] = temperatureSeries[i];
             }
         }
@@ -136,7 +136,7 @@ public class TemperatureSeriesAnalysis {
 
     private int addTemps(double... temps) {
         valid(temps);
-        if (capacity - len >= temps.length){
+        if (capacity - len >= temps.length) {
             System.arraycopy(temps, 0, temperatureSeries, len, len
                     + temps.length - len);
             return len + temps.length;
