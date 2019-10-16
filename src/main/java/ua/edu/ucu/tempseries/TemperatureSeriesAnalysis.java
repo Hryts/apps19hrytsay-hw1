@@ -135,7 +135,7 @@ public class TemperatureSeriesAnalysis {
         return new TempSummaryStatistics(average(), deviation(), min(), max());
     }
 
-    private int addTemps(double... temps) {
+    int addTemps(double... temps) {
         valid(temps);
         if (capacity - len >= temps.length) {
             System.arraycopy(temps, 0, temperatureSeries, len, len
