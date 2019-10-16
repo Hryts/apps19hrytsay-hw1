@@ -39,7 +39,7 @@ public class TemperatureSeriesAnalysis {
         empty();
         double med = 0;
         for (int i = 0; i < len; i++) {
-            med += (float)temperatureSeries[i];
+            med += (float) temperatureSeries[i];
         }
         return med / len;
     }
@@ -49,7 +49,8 @@ public class TemperatureSeriesAnalysis {
         double mean = average();
         double dev = 0;
         for (int i = 0; i < len; i++) {
-            dev += Math.pow(temperatureSeries[i] - mean, 2);
+            dev += (temperatureSeries[i] - mean)
+                    * (temperatureSeries[i] - mean);
         }
         dev /= len;
         return Math.pow(dev, 0.5);
