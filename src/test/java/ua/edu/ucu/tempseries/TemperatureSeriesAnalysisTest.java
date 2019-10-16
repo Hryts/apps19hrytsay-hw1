@@ -81,7 +81,7 @@ public class TemperatureSeriesAnalysisTest {
         double[] temperatureSeries = {3.0, -5.0, 1.0, 5.0};
         TemperatureSeriesAnalysis seriesAnalysis =
                 new TemperatureSeriesAnalysis(temperatureSeries);
-        double expResult = 3.741657387;
+        double expResult = 3.74165738677;
 
         double actualResult = seriesAnalysis.deviation();
 
@@ -408,5 +408,34 @@ public class TemperatureSeriesAnalysisTest {
         assertTrue(Arrays.equals(expResult, actualResult));
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void testSummaryStatisticsWithEmptyArray()
+            throws IllegalAccessException {
+        double[] temperatureSeries = {};
+        TemperatureSeriesAnalysis seriesAnalysis =
+                new TemperatureSeriesAnalysis(temperatureSeries);
 
+        // expect exception here
+        seriesAnalysis.summaryStatistics();
+    }
+
+    @Test
+    public void testSummaryStatisticss()
+            throws IllegalAccessException {
+        double[] temperatureSeries = {3.0, -5.0, 1.0, 5.0};
+        TemperatureSeriesAnalysis seriesAnalysis =
+                new TemperatureSeriesAnalysis(temperatureSeries);
+        double avgTemp = 1.0;
+        double devTemp = 3.74165738677;
+        double minTemp = -5.0;
+        double maxTemp = 5.0;
+
+        TempSummaryStatistics expResult = new TempSummaryStatistics(avgTemp,
+                devTemp, minTemp, maxTemp);
+
+        TempSummaryStatistics actualResult = seriesAnalysis.summaryStatistics();
+//        System.out.println(actualResult.getMaxTemp());
+
+        assertTrue(expResult == actualResult);
+    }
 }
