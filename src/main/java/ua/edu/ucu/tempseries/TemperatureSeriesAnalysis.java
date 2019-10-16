@@ -89,7 +89,8 @@ public class TemperatureSeriesAnalysis {
         return res;
     }
 
-    public double findTempClosestToValue(double tempValue) throws IllegalAccessException {
+    public double findTempClosestToValue(double tempValue)
+            throws IllegalAccessException {
         empty();
         double minDif = Math.abs(temperatureSeries[0] - tempValue);
         double res = temperatureSeries[0];
@@ -101,7 +102,8 @@ public class TemperatureSeriesAnalysis {
         return res;
     }
 
-    public double[] findTempsLessThen(double tempValue) throws IllegalAccessException {
+    public double[] findTempsLessThen(double tempValue)
+            throws IllegalAccessException {
         empty();
         double[] res = new double[len];
         int temp = 0;
@@ -113,7 +115,8 @@ public class TemperatureSeriesAnalysis {
         return Arrays.copyOfRange(res, 0, temp);
     }
 
-    public double[] findTempsGreaterThen(double tempValue) throws IllegalAccessException {
+    public double[] findTempsGreaterThen(double tempValue)
+            throws IllegalAccessException {
         empty();
         double[] res = new double[len];
         int temp = 0;
@@ -125,7 +128,8 @@ public class TemperatureSeriesAnalysis {
         return Arrays.copyOfRange(res, 0, temp);
     }
 
-    public TempSummaryStatistics summaryStatistics() throws IllegalAccessException {
+    public TempSummaryStatistics summaryStatistics()
+            throws IllegalAccessException {
         empty();
         return new TempSummaryStatistics(average(), deviation(), min(), max());
     }
@@ -133,7 +137,8 @@ public class TemperatureSeriesAnalysis {
     private int addTemps(double... temps) {
         valid(temps);
         if (capacity - len >= temps.length){
-            System.arraycopy(temps, 0, temperatureSeries, len, len + temps.length - len);
+            System.arraycopy(temps, 0, temperatureSeries, len, len
+                    + temps.length - len);
             return len + temps.length;
         } else {
             capacity *= 2;
