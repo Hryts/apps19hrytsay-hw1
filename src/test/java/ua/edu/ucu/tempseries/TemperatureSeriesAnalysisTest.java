@@ -454,4 +454,34 @@ public class TemperatureSeriesAnalysisTest {
 
         assertEquals(expResult, actualResult);
     }
+
+    @Test
+    public void testTempSummaryStatisticsEmptyConstructor() {
+        TempSummaryStatistics tss = new TempSummaryStatistics();
+    }
+
+    @Test
+    public void testTempSummaryStatisticsNotEmptyConstructor() {
+        TempSummaryStatistics tss = new TempSummaryStatistics();
+        double avgTemp = 1.0;
+        double devTemp = 3.7416573867739413;
+        double minTemp = -5.0;
+        double maxTemp = 5.0;
+
+        TempSummaryStatistics expResult = new TempSummaryStatistics(avgTemp,
+                devTemp, minTemp, maxTemp);
+    }
+
+    @Test
+    public void testTempSummaryStatisticsSetters() {
+        TempSummaryStatistics tss = new TempSummaryStatistics();
+        double avgTemp = 1.0;
+        double devTemp = 3.7416573867739413;
+        double minTemp = -5.0;
+        double maxTemp = 5.0;
+        tss.setAvgTemp(avgTemp);
+        tss.setDevTemp(devTemp);
+        tss.setMinTemp(minTemp);
+        tss.setMaxTemp(maxTemp);
+    }
 }
