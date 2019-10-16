@@ -300,10 +300,10 @@
         </module>
 
         <module name="NeedBraces"/>
-        <module name="HiddenField" >
-            <property name="ignoreSetter" value="true" />
-            <property name="ignoreConstructorParameter" value="true" />
-        </module>
+<!--        <module name="HiddenField" >-->
+<!--            <property name="ignoreSetter" value="true" />-->
+<!--            <property name="ignoreConstructorParameter" value="true" />-->
+<!--        </module>-->
 
 
 
