@@ -30,13 +30,13 @@ public class TemperatureSeriesAnalysis {
         }
     }
 
-    private void empty() throws IllegalAccessException {
+    private void empty() throws IllegalArgumentException {
         if (len == 0) {
-            throw new IllegalAccessException();
+            throw new IllegalArgumentException();
         }
     }
 
-    public double average() throws IllegalAccessException {
+    public double average() throws IllegalArgumentException {
         empty();
         double med = 0;
         for (int i = 0; i < len; i++) {
@@ -45,7 +45,7 @@ public class TemperatureSeriesAnalysis {
         return med / len;
     }
 
-    public double deviation() throws IllegalAccessException {
+    public double deviation() throws IllegalArgumentException {
         empty();
         double mean = average();
         double dev = 0;
@@ -57,7 +57,7 @@ public class TemperatureSeriesAnalysis {
         return Math.pow(dev, 0.5);
     }
 
-    public double min() throws IllegalAccessException {
+    public double min() throws IllegalArgumentException {
         empty();
         double min = temperatureSeries[0];
         for (int i = 1; i < len; i++) {
@@ -68,7 +68,7 @@ public class TemperatureSeriesAnalysis {
         return min;
     }
 
-    public double max() throws IllegalAccessException {
+    public double max() throws IllegalArgumentException {
         empty();
         double max = temperatureSeries[0];
         for (int i = 1; i < len; i++) {
@@ -79,7 +79,7 @@ public class TemperatureSeriesAnalysis {
         return max;
     }
 
-    public double findTempClosestToZero() throws IllegalAccessException {
+    public double findTempClosestToZero() throws IllegalArgumentException {
         empty();
         double minDif = Math.abs(temperatureSeries[0]);
         double res = temperatureSeries[0];
@@ -92,7 +92,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double findTempClosestToValue(double tempValue)
-            throws IllegalAccessException {
+            throws IllegalArgumentException {
         empty();
         double minDif = Math.abs(temperatureSeries[0] - tempValue);
         double res = temperatureSeries[0];
@@ -105,7 +105,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double[] findTempsLessThen(double tempValue)
-            throws IllegalAccessException {
+            throws IllegalArgumentException {
         empty();
         double[] res = new double[len];
         int temp = 0;
@@ -118,7 +118,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double[] findTempsGreaterThen(double tempValue)
-            throws IllegalAccessException {
+            throws IllegalArgumentException {
         empty();
         double[] res = new double[len];
         int temp = 0;
@@ -131,7 +131,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public TempSummaryStatistics summaryStatistics()
-            throws IllegalAccessException {
+            throws IllegalArgumentException {
         empty();
         return new TempSummaryStatistics(average(), deviation(), min(), max());
     }
