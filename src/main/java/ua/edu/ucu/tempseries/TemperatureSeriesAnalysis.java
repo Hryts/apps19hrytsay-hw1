@@ -16,7 +16,8 @@ public class TemperatureSeriesAnalysis {
 
     public TemperatureSeriesAnalysis(double[] temperatureSeries) {
         valid(temperatureSeries);
-        this.temperatureSeries = temperatureSeries;
+        this.temperatureSeries = Arrays.copyOf(temperatureSeries,
+                temperatureSeries.length);
         len = temperatureSeries.length;
         capacity = temperatureSeries.length;
     }
