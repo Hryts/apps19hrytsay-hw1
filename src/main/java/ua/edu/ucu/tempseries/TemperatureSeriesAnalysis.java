@@ -79,10 +79,10 @@ public class TemperatureSeriesAnalysis {
 
     public double findTempClosestToZero() throws IllegalAccessException {
         empty();
-        double min_dif = Math.abs(temperatureSeries[0]);
+        double minDif = Math.abs(temperatureSeries[0]);
         double res = temperatureSeries[0];
         for (int i = 1; i < len; i++){
-            if (Math.abs(temperatureSeries[i]) < min_dif) {
+            if (Math.abs(temperatureSeries[i]) < minDif) {
                 res = temperatureSeries[i];
             }
         }
@@ -91,10 +91,10 @@ public class TemperatureSeriesAnalysis {
 
     public double findTempClosestToValue(double tempValue) throws IllegalAccessException {
         empty();
-        double min_dif = Math.abs(temperatureSeries[0] - tempValue);
+        double minDif = Math.abs(temperatureSeries[0] - tempValue);
         double res = temperatureSeries[0];
         for (int i = 1; i < len; i++){
-            if (Math.abs(temperatureSeries[i] - tempValue) < min_dif) {
+            if (Math.abs(temperatureSeries[i] - tempValue) < minDif) {
                 res = temperatureSeries[i];
             }
         }
