@@ -441,4 +441,17 @@ public class TemperatureSeriesAnalysisTest {
         && expResult.getMinTemp() == actualResult.getMinTemp()
         && expResult.getMaxTemp() == actualResult.getMaxTemp());
     }
+
+    @Test
+    public void testAddTempsNoFreeCapacity() throws IllegalAccessException{
+        double[] temperatureSeries = {3.0, -5.0, 1.0, 5.0};
+        TemperatureSeriesAnalysis seriesAnalysis =
+                new TemperatureSeriesAnalysis(temperatureSeries);
+        double[] toAdd = {1.0, 2.0};
+        int expResult = 6;
+
+        int actualResult = seriesAnalysis.addTemps(toAdd);
+
+        assertEquals(expResult, actualResult);
+    }
 }
