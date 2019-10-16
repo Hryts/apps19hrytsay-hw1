@@ -21,7 +21,6 @@ public class TemperatureSeriesAnalysisTest {
         assertEquals(expResult, actualResult, 0.00001);
     }
 
-    @Ignore
     @Test(expected = IllegalArgumentException.class)
     public void testAverageWithEmptyArray() throws IllegalAccessException {
         double[] temperatureSeries = {};
@@ -32,7 +31,6 @@ public class TemperatureSeriesAnalysisTest {
         seriesAnalysis.average();
     }
 
-    @Ignore
     @Test
     public void testAverage() throws IllegalAccessException {
         double[] temperatureSeries = {3.0, -5.0, 1.0, 5.0};
@@ -45,6 +43,7 @@ public class TemperatureSeriesAnalysisTest {
         assertEquals(expResult, actualResult, 0.00001);        
     }
 
+    @Ignore
     @Test
     public void testDeviationWithOneElementArray()
             throws IllegalAccessException {
