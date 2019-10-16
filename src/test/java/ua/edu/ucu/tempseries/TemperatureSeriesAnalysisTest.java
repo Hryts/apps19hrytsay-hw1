@@ -10,7 +10,8 @@ public class TemperatureSeriesAnalysisTest {
     public void testAverageWithOneElementArray() throws IllegalAccessException {
         // setup input data and expected result
         double[] temperatureSeries = {-1.0};
-        TemperatureSeriesAnalysis seriesAnalysis = new TemperatureSeriesAnalysis(temperatureSeries);
+        TemperatureSeriesAnalysis seriesAnalysis =
+                new TemperatureSeriesAnalysis(temperatureSeries);
         double expResult = -1.0;
 
         // call tested method
@@ -24,7 +25,8 @@ public class TemperatureSeriesAnalysisTest {
     @Test(expected = IllegalArgumentException.class)
     public void testAverageWithEmptyArray() throws IllegalAccessException {
         double[] temperatureSeries = {};
-        TemperatureSeriesAnalysis seriesAnalysis = new TemperatureSeriesAnalysis(temperatureSeries);
+        TemperatureSeriesAnalysis seriesAnalysis =
+                new TemperatureSeriesAnalysis(temperatureSeries);
 
         // expect exception here
         seriesAnalysis.average();
@@ -34,12 +36,53 @@ public class TemperatureSeriesAnalysisTest {
     @Test
     public void testAverage() throws IllegalAccessException {
         double[] temperatureSeries = {3.0, -5.0, 1.0, 5.0};
-        TemperatureSeriesAnalysis seriesAnalysis = new TemperatureSeriesAnalysis(temperatureSeries);
+        TemperatureSeriesAnalysis seriesAnalysis =
+                new TemperatureSeriesAnalysis(temperatureSeries);
         double expResult = 1.0;
 
         double actualResult = seriesAnalysis.average();
         
         assertEquals(expResult, actualResult, 0.00001);        
+    }
+
+    @Test
+    public void testDeviationWithOneElementArray()
+            throws IllegalAccessException {
+        // setup input data and expected result
+        double[] temperatureSeries = {-1.0};
+        TemperatureSeriesAnalysis seriesAnalysis =
+                new TemperatureSeriesAnalysis(temperatureSeries);
+        double expResult = 0.0;
+
+        // call tested method
+        double actualResult = seriesAnalysis.average();
+
+        // compare expected result with actual result
+        assertEquals(expResult, actualResult, 0.00001);
+    }
+
+    @Ignore
+    @Test(expected = IllegalArgumentException.class)
+    public void testDeviationWithEmptyArray() throws IllegalAccessException {
+        double[] temperatureSeries = {};
+        TemperatureSeriesAnalysis seriesAnalysis =
+                new TemperatureSeriesAnalysis(temperatureSeries);
+
+        // expect exception here
+        seriesAnalysis.average();
+    }
+
+    @Ignore
+    @Test
+    public void testDeviation() throws IllegalAccessException {
+        double[] temperatureSeries = {3.0, -5.0, 1.0, 5.0};
+        TemperatureSeriesAnalysis seriesAnalysis =
+                new TemperatureSeriesAnalysis(temperatureSeries);
+        double expResult = 3.741657387;
+
+        double actualResult = seriesAnalysis.average();
+
+        assertEquals(expResult, actualResult, 0.00001);
     }
     
 
