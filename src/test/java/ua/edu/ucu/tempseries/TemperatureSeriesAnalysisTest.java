@@ -426,7 +426,7 @@ public class TemperatureSeriesAnalysisTest {
         TemperatureSeriesAnalysis seriesAnalysis =
                 new TemperatureSeriesAnalysis(temperatureSeries);
         double avgTemp = 1.0;
-        double devTemp = 3.74165738677;
+        double devTemp = 3.7416573867739413;
         double minTemp = -5.0;
         double maxTemp = 5.0;
 
@@ -434,8 +434,11 @@ public class TemperatureSeriesAnalysisTest {
                 devTemp, minTemp, maxTemp);
 
         TempSummaryStatistics actualResult = seriesAnalysis.summaryStatistics();
-//        System.out.println(actualResult.getMaxTemp());
+//        System.out.println(expResult == actualResult);
 
-        assertTrue(expResult == actualResult);
+        assertTrue(expResult.getAvgTemp() == actualResult.getAvgTemp()
+        && expResult.getDevTemp() == actualResult.getDevTemp()
+        && expResult.getMinTemp() == actualResult.getMinTemp()
+        && expResult.getMaxTemp() == actualResult.getMaxTemp());
     }
 }
