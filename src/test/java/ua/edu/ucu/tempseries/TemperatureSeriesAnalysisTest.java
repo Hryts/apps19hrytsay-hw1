@@ -328,4 +328,78 @@ public class TemperatureSeriesAnalysisTest {
 
         assertTrue(Arrays.equals(expResult, actualResult));
     }
+
+    @Test
+    public void testFindTempsGreaterThenWithOneElementArrayNotEmptyResult()
+            throws IllegalAccessException {
+        // setup input data and expected result
+        double[] temperatureSeries = {-1.0};
+        TemperatureSeriesAnalysis seriesAnalysis =
+                new TemperatureSeriesAnalysis(temperatureSeries);
+        double[] expResult = {-1.0};
+        double arg = -100.0;
+
+        // call tested method
+        double[] actualResult = seriesAnalysis.findTempsGreaterThen(arg);
+
+        // compare expected result with actual result
+        assertTrue(Arrays.equals(actualResult, expResult));
+    }
+
+    @Test
+    public void testFindTempsGreaterThenWithOneElementArrayEmptyResult()
+            throws IllegalAccessException {
+        // setup input data and expected result
+        double[] temperatureSeries = {-1.0};
+        TemperatureSeriesAnalysis seriesAnalysis =
+                new TemperatureSeriesAnalysis(temperatureSeries);
+        double[] expResult = {};
+        double arg = 100.0;
+
+        // call tested method
+        double[] actualResult = seriesAnalysis.findTempsGreaterThen(arg);
+
+        // compare expected result with actual result
+        assertTrue(Arrays.equals(expResult, actualResult));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testFindTempsGreaterThenWithEmptyArray()
+            throws IllegalAccessException {
+        double[] temperatureSeries = {};
+        TemperatureSeriesAnalysis seriesAnalysis =
+                new TemperatureSeriesAnalysis(temperatureSeries);
+        double arg = 100.0;
+
+        // expect exception here
+        seriesAnalysis.findTempsGreaterThen(arg);
+    }
+
+    @Test
+    public void testFindTempsGreaterThenNotEmptyResult()
+            throws IllegalAccessException {
+        double[] temperatureSeries = {3.0, -5.0, 1.0, 5.0};
+        TemperatureSeriesAnalysis seriesAnalysis =
+                new TemperatureSeriesAnalysis(temperatureSeries);
+        double[] expResult = {3.0, -5.0, 1.0, 5.0};
+        double arg = -100.0;
+
+        double[] actualResult = seriesAnalysis.findTempsGreaterThen(arg);
+
+        assertTrue(Arrays.equals(expResult, actualResult));
+    }
+
+    @Test
+    public void testFindTempsGreaterThenEmptyResult()
+            throws IllegalAccessException {
+        double[] temperatureSeries = {3.0, -5.0, 1.0, 5.0};
+        TemperatureSeriesAnalysis seriesAnalysis =
+                new TemperatureSeriesAnalysis(temperatureSeries);
+        double[] expResult = {};
+        double arg = 100.0;
+
+        double[] actualResult = seriesAnalysis.findTempsGreaterThen(arg);
+
+        assertTrue(Arrays.equals(expResult, actualResult));
+    }
 }
