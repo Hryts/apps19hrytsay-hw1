@@ -1,6 +1,5 @@
 package ua.edu.ucu.tempseries;
 
-import javax.imageio.ImageTranscoder;
 import java.util.Arrays;
 import java.util.InputMismatchException;
 
