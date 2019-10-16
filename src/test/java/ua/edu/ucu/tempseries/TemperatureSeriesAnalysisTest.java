@@ -195,4 +195,61 @@ public class TemperatureSeriesAnalysisTest {
 
         assertEquals(expResult, actualResult, 0.00001);
     }
+
+    @Test
+    public void testFindTempClosestToValueWithOneElementArray()
+            throws IllegalAccessException {
+        // setup input data and expected result
+        double[] temperatureSeries = {-1.0};
+        TemperatureSeriesAnalysis seriesAnalysis =
+                new TemperatureSeriesAnalysis(temperatureSeries);
+        double expResult = -1.0;
+        double arg = 5.0;
+
+        // call tested method
+        double actualResult = seriesAnalysis.findTempClosestToValue(arg);
+
+        // compare expected result with actual result
+        assertEquals(expResult, actualResult, 0.00001);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testFindTempClosestToValueWithEmptyArray()
+            throws IllegalAccessException {
+        double[] temperatureSeries = {};
+        TemperatureSeriesAnalysis seriesAnalysis =
+                new TemperatureSeriesAnalysis(temperatureSeries);
+        double arg = 5.0;
+
+        // expect exception here
+        seriesAnalysis.findTempClosestToValue(arg);
+    }
+
+    @Test
+    public void testFindTempClosestToValueIncluded()
+            throws IllegalAccessException {
+        double[] temperatureSeries = {3.0, -5.0, 1.0, 5.0};
+        TemperatureSeriesAnalysis seriesAnalysis =
+                new TemperatureSeriesAnalysis(temperatureSeries);
+        double expResult = 5.0;
+        double arg = 5.0;
+
+        double actualResult = seriesAnalysis.findTempClosestToValue(arg);
+
+        assertEquals(expResult, actualResult, 0.00001);
+    }
+
+    @Test
+    public void testFindTempClosestToValueExcluded()
+            throws IllegalAccessException {
+        double[] temperatureSeries = {3.0, -5.0, 1.0, 5.0};
+        TemperatureSeriesAnalysis seriesAnalysis =
+                new TemperatureSeriesAnalysis(temperatureSeries);
+        double expResult = 1.0;
+        double arg = 0.0;
+
+        double actualResult = seriesAnalysis.findTempClosestToValue(arg);
+
+        assertEquals(expResult, actualResult, 0.00001);
+    }
 }
