@@ -52,22 +52,25 @@ public class TempSummaryStatistics {
         this.maxTemp = max;
     }
 
-    @Override
-    public boolean equals(Object o) {
-
-        if (o == this) {
-            return true;
-        }
-
-        if (!(o instanceof TempSummaryStatistics)) {
-            return false;
-        }
-
-        TempSummaryStatistics tss = (TempSummaryStatistics) o;
-
-        return avgTemp == tss.avgTemp
-                && devTemp == tss.devTemp
-                && minTemp == tss.minTemp
-                && maxTemp == tss.maxTemp;
-    }
+//    @Override
+//    public boolean equals(Object o) {
+//
+//        if (o == this) {
+//            return true;
+//        }
+//
+//        if (!(o instanceof TempSummaryStatistics)) {
+//            return false;
+//        }
+//
+//        TempSummaryStatistics tss = (TempSummaryStatistics) o;
+//
+//        System.out.println(Math.abs(avgTemp - tss.avgTemp) < 1e-4);
+//
+//        return Math.abs(avgTemp - tss.avgTemp) < 1e-4
+//            && Math.abs(devTemp - tss.devTemp) < 1e-4
+//            && Math.abs(minTemp - tss.minTemp) < 1e-4
+//            && Math.abs(maxTemp - tss.maxTemp) < 1e-4;
+//
+//    }
 }
