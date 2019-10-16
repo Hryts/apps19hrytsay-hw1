@@ -52,4 +52,22 @@ public class TempSummaryStatistics {
         this.maxTemp = max;
     }
 
+    @Override
+    public boolean equals(Object o) {
+
+        if (o == this) {
+            return true;
+        }
+
+        if (!(o instanceof TempSummaryStatistics)) {
+            return false;
+        }
+
+        TempSummaryStatistics tss = (TempSummaryStatistics) o;
+
+        return avgTemp == tss.avgTemp
+                && devTemp == tss.devTemp
+                && minTemp == tss.minTemp
+                && maxTemp == tss.maxTemp;
+    }
 }
