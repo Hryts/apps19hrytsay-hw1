@@ -9,6 +9,11 @@ import java.util.Arrays;
 public class TemperatureSeriesAnalysisTest {
 
     @Test
+    public void testEmptyConstructor() {
+        TemperatureSeriesAnalysis tsa = new TemperatureSeriesAnalysis();
+    }
+
+    @Test
     public void testAverageWithOneElementArray() throws IllegalAccessException {
         // setup input data and expected result
         double[] temperatureSeries = {-1.0};
@@ -402,4 +407,6 @@ public class TemperatureSeriesAnalysisTest {
 
         assertTrue(Arrays.equals(expResult, actualResult));
     }
+
+
 }
