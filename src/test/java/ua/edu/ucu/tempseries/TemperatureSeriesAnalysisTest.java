@@ -43,7 +43,6 @@ public class TemperatureSeriesAnalysisTest {
         assertEquals(expResult, actualResult, 0.00001);        
     }
 
-    @Ignore
     @Test
     public void testDeviationWithOneElementArray()
             throws IllegalAccessException {
@@ -54,13 +53,12 @@ public class TemperatureSeriesAnalysisTest {
         double expResult = 0.0;
 
         // call tested method
-        double actualResult = seriesAnalysis.average();
+        double actualResult = seriesAnalysis.deviation();
 
         // compare expected result with actual result
         assertEquals(expResult, actualResult, 0.00001);
     }
 
-    @Ignore
     @Test(expected = IllegalArgumentException.class)
     public void testDeviationWithEmptyArray() throws IllegalAccessException {
         double[] temperatureSeries = {};
@@ -68,10 +66,9 @@ public class TemperatureSeriesAnalysisTest {
                 new TemperatureSeriesAnalysis(temperatureSeries);
 
         // expect exception here
-        seriesAnalysis.average();
+        seriesAnalysis.deviation();
     }
 
-    @Ignore
     @Test
     public void testDeviation() throws IllegalAccessException {
         double[] temperatureSeries = {3.0, -5.0, 1.0, 5.0};
@@ -79,7 +76,7 @@ public class TemperatureSeriesAnalysisTest {
                 new TemperatureSeriesAnalysis(temperatureSeries);
         double expResult = 3.741657387;
 
-        double actualResult = seriesAnalysis.average();
+        double actualResult = seriesAnalysis.deviation();
 
         assertEquals(expResult, actualResult, 0.00001);
     }
