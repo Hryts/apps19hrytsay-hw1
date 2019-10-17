@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.junit.Ignore;
 
 import java.util.Arrays;
+import java.util.InputMismatchException;
 
 public class TemperatureSeriesAnalysisTest {
 
@@ -483,5 +484,15 @@ public class TemperatureSeriesAnalysisTest {
         tss.setDevTemp(devTemp);
         tss.setMinTemp(minTemp);
         tss.setMaxTemp(maxTemp);
+    }
+
+    @Test(expected = InputMismatchException.class)
+    public void testValidationException() throws InputMismatchException {
+        double[] temperatureSeries = {-300};
+        TemperatureSeriesAnalysis seriesAnalysis =
+                new TemperatureSeriesAnalysis(temperatureSeries);
+
+        // expect exception here
+        seriesAnalysis.average();
     }
 }
